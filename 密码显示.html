@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+		@font-face {
+		  font-family: 'icomoon';
+		  src:  url('fonts/icomoon.eot?q14z5i');
+		  src:  url('fonts/icomoon.eot?q14z5i#iefix') format('embedded-opentype'),
+		    url('fonts/icomoon.ttf?q14z5i') format('truetype'),
+		    url('fonts/icomoon.woff?q14z5i') format('woff'),
+		    url('fonts/icomoon.svg?q14z5i#icomoon') format('svg');
+		  font-weight: normal;
+		  font-style: normal;
+		  font-display: block;
+		}
+		
+		.divleft{
+			position: relative;
+			width: 300px;
+			background-color: #f1f1f1;
+		}
+		.divleft input{
+			width: 100%;
+			height: 30px;
+			outline: none;
+		}
+		
+		.divleft span{
+			font-family: 'icomoon';
+			position: absolute;
+			top: 10px;
+			right: 0;
+			cursor: pointer;
+		}
+		
+    </style>
+	
+	<script src="jquery/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $txt = $("#txt")
+			var num = 1;
+			$txt.click(function(){
+				var $pwd = $("#pwd")
+				if(num){
+					$pwd.attr('type','text');
+					$txt.text("");
+					num=0;
+				}else{
+					$pwd.attr('type','password');
+					$txt.text("");
+					num=1;
+				}
+			})
+		})
+			
+		
+	</script>
+</head>
+<body>
+    <div class="divleft">
+        <input type="password" placeholder="请输入密码......" id="pwd">
+		<span id="txt"></span>
+    </div>
+</body>
+</html>

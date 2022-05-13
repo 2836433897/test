@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>删除标签属性</title>
+	</head>
+	<body>
+		<script src="jquery/jquery-3.6.0.js"></script>
+		<script type="text/javascript">
+		console.log(aa);
+		var aa = 10;
+		
+		
+			$(function(){
+				$("#but").click(function(){
+					//console.log(read.value);
+					//$("#read").removeAttr("readonly");
+					$("#read").attr("disabled","true")
+					
+				})
+				/* document.getElementById("but").onclick = function(){
+					document.getElementById("read").removeAttribute("readonly")
+				} */
+			})
+		</script>
+		<input type="text" id="read" value=0 /><br>
+		<input type="text" id="rea" value=0 disabled/><br>
+		<input type="button" id="but" value="删除只读""/>
+	</body>
+</html>
