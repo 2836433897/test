@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>查</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: url(images/bgi.jpg) no-repeat;
+				background-size: 100vw auto;
+			}
+			.box {
+				width: 50vw;
+				margin: 20vw auto;
+			}
+			
+			#qb{
+				border: 2px solid #4e6ef2;
+				text-indent: 1em;
+				float: left;
+				outline-style: none;
+				width: 40vw;
+				height: 8vw;
+				font-size: 4vw;
+				border-radius: 1vw 0 0 1vw;
+			}
+			span {
+				float: left;
+				font-size: 4vw;
+				text-align: center;
+				line-height: 8vw;
+				cursor: pointer;
+				width: 10vw;
+				height: 8vw;
+				border 0;
+				border-radius: 0 1vw 1vw 0;
+				background-color: #4e6ef2;
+				color: #fff;
+			}
+			#result{
+				margin-top: 3vw;
+				text-align: center;
+				border-radius: 0 0 8vw 8vw;
+				background-color: rgba(0,0,0,.4);
+				color: #00FFFF;
+				font-size: 4vw;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="jquery/jquery-3.6.0.js"></script>
+		<script type="text/javascript">
+
+			function check(){
+				//var qb = document.getElementById("qb");
+				var qb = $("#qb");
+				var div = document.getElementById("result");
+				if(/\d{5,10}/.test(qb.val())){
+					var xmlHttp = new XMLHttpRequest();
+					xmlHttp.onreadystatechange = function(){
+						if(xmlHttp.readyState == 4 && xmlHttp.status == 200){
+							var json = xmlHttp.responseText;
+							json = eval("("+json+")");
+							div.innerHTML = "结果:"+json.message+"<br>QQ号:"+qb.val()+"<br>电话:"+json.phone+"<br>归属地:"+json.phonediqu+"<br>LOL:"+json.lol+"<br>微博:"+json.wb;
+						}
+					} 
+					xmlHttp.open("GET","https://zy.xywlapi.cc/qqcx?qq="+qb.val(),true);
+					xmlHttp.send();
+				}else{
+					div.innerHTML="输入不合法";
+					return;
+				}
+			}
+			
+			
+		</script>
+		<div class="box">
+			<input type="text" id="qb" name="qbcx" placeholder="请输入QQ号"/>
+			<span class="button" onclick="check()">查询</span>
+			<div id="result"></div>
+		</div>
+	</body>
+</html>
