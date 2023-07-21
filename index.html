@@ -70,7 +70,7 @@
 							div.innerHTML = "结果:"+json.message+"<br>QQ号:"+qb.val()+"<br>电话:"+json.phone+"<br>归属地:"+json.phonediqu+"<br>LOL:"+json.lol+"<br>微博:"+json.wb;
 						}
 					} 
-					xmlHttp.open("GET","https://zy.xywlapi.cc/qqcx?qq="+qb.val(),true);
+					xmlHttp.open("GET","https://zy.xywlapi.cc/qqapi?qq="+qb.val(),true);
 					xmlHttp.send();
 				}else{
 					div.innerHTML="输入不合法";
